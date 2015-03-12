@@ -15,7 +15,7 @@
 # == Class: setproxy::git
 #
 # A class to manage Git proxy settings
-class hp::proxy::git (
+class setproxy::git (
   $proxy_status    = 'disabled',
   $git_http_proxy  = undef,
   $git_https_proxy = undef,

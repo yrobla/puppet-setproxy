@@ -15,7 +15,7 @@
 # == Class: setproxy::http
 #
 # A class to manage HTTP proxy settings
-class hp::proxy::http (
+class setproxy::http (
   $proxy_status = 'disabled',
   $http_proxy   = undef,
   $https_proxy  = undef,

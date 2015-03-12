@@ -15,7 +15,7 @@
 # == Class: setproxy::gem
 #
 # A class to manage rubygems proxy settings
-class hp::proxy::gem (
+class setproxy::gem (
   $proxy_status = 'disabled',
   $http_proxy   = undef,
   $https_proxy  = undef,
