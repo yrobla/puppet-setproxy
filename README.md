@@ -2,4 +2,4 @@
 
 ## Overview
 
-Sets proxy settings in profile.
+Sets proxy settings for generic services.
