@@ -23,13 +23,13 @@ class setproxy::http (
 ) {
 
   if $proxy_status == 'enabled' {
-    file { '/etc/profile.d/proxy.sh':
+    file { '/etc/profile.d/http-proxy.sh':
       ensure  => file,
       content => template('setproxy/profile_proxy.sh.erb'),
       mode    => '0755',
     }
   } else {
-    file { '/etc/profile.d/proxy.sh':
+    file { '/etc/profile.d/http-proxy.sh':
       ensure  => absent,
     }
   }
