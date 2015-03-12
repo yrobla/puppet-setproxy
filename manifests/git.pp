@@ -40,10 +40,6 @@ class setproxy::git (
       content => template('setproxy/gitproxy.erb'),
       mode    => '0755',
     }
-  } else {
-    file { '/etc/profile.d/proxy.sh':
-      ensure  => absent,
-    }
   }
 }
 
