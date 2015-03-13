@@ -16,9 +16,9 @@
 #
 # A class to manage Git proxy settings
 class setproxy::git (
-  $git_http_proxy  = undef,
-  $git_https_proxy = undef,
-  $git_proxy_port  = 8088,
+  $http_proxy  = undef,
+  $https_proxy = undef,
+  $proxy_port  = 8088,
   $enable_gitproxy = undef,
   $git_compression = 3,
 ) {

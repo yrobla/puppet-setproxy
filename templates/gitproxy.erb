@@ -10,7 +10,7 @@
 # More details at http://tinyurl.com/8xvpny
 
 # Configuration. Common proxy ports are 3128, 8123, 8000.
-_proxy=<%= @git_http_proxy %>
-_proxyport=<%= @git_proxy_port %>
+_proxy=<%= @http_proxy %>
+_proxyport=<%= @proxy_port %>
 
 exec socat STDIO PROXY:$_proxy:$1:$2,proxyport=$_proxyport
