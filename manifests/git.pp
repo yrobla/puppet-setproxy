@@ -20,7 +20,7 @@ class setproxy::git (
   $git_http_proxy  = undef,
   $git_https_proxy = undef,
   $git_proxy_port  = 8088,
-  $gitproxy        = undef,
+  $enable_gitproxy = undef,
   $git_compression = 3,
 ) {
 
@@ -35,10 +35,13 @@ class setproxy::git (
       owner   => 'root',
       mode    => '0644',
     }
-    file { '/usr/local/bin/gitproxy':
-      ensure  => file,
-      content => template('setproxy/gitproxy.erb'),
-      mode    => '0755',
+
+    if $enable_gitproxy {
+      file { '/usr/local/bin/gitproxy':
+        ensure  => file,
+        content => template('setproxy/gitproxy.erb'),
+        mode    => '0755',
+      }
     }
   }
 }
