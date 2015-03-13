@@ -1,11 +1,11 @@
 {
-  "name": "openstackci-setproxy",
+  "name": "yrobla-setproxy",
   "version": "0.0.1",
-  "author": "OpenStack CI",
-  "summary": "Puppet module for Setproxy",
+  "author": "Yolanda Robla",
+  "summary": "Puppet module for setting proxy in services",
   "license": "Apache 2.0",
   "source": "https://github.com/yrobla/puppet-setproxy.git",
-  "project_page": "http://ci.openstack.org/",
+  "project_page": "",
   "issues_url": "",
   "dependencies": [
   ]

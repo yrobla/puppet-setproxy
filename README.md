@@ -1,4 +1,4 @@
-# OpenStack Set proxy Module
+# Generic Set proxy Module
 
 ## Overview
 
