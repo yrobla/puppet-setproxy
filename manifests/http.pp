@@ -16,22 +16,15 @@
 #
 # A class to manage HTTP proxy settings
 class setproxy::http (
-  $proxy_status = 'disabled',
   $http_proxy   = undef,
   $https_proxy  = undef,
   $no_proxy     = undef,
 ) {
 
-  if $proxy_status == 'enabled' {
-    file { '/etc/profile.d/http-proxy.sh':
-      ensure  => file,
-      content => template('setproxy/profile_proxy.sh.erb'),
-      mode    => '0755',
-    }
-  } else {
-    file { '/etc/profile.d/http-proxy.sh':
-      ensure  => absent,
-    }
+  file { '/etc/profile.d/http-proxy.sh':
+    ensure  => file,
+    content => template('setproxy/profile_proxy.sh.erb'),
+    mode    => '0755',
   }
 }
 

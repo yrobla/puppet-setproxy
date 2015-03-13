@@ -16,22 +16,14 @@
 #
 # A class to manage rubygems proxy settings
 class setproxy::gem (
-  $proxy_status = 'disabled',
   $http_proxy   = undef,
   $https_proxy  = undef,
 ) {
 
-  if $proxy_status == 'enabled' {
-    file { '/etc/gemrc':
-      ensure  => file,
-      content => template('setproxy/gemrc.erb'),
-      mode    => '0644',
-    }
-  } else {
-    file { '/etc/gemrc':
-      ensure  => absent,
-    }
+  file { '/etc/gemrc':
+    ensure  => file,
+    content => template('setproxy/gemrc.erb'),
+    mode    => '0644',
   }
-
 }
 

@@ -16,7 +16,6 @@
 #
 # A class to manage Git proxy settings
 class setproxy::git (
-  $proxy_status    = 'disabled',
   $git_http_proxy  = undef,
   $git_https_proxy = undef,
   $git_proxy_port  = 8088,
@@ -24,24 +23,22 @@ class setproxy::git (
   $git_compression = 3,
 ) {
 
-  if $proxy_status == 'enabled' {
-    if ! defined(Package['socat']) {
-      package { 'socat': ensure => installed, }
-    }
+  if ! defined(Package['socat']) {
+    package { 'socat': ensure => installed, }
+  }
 
-    file { '/etc/gitconfig':
+  file { '/etc/gitconfig':
+    ensure  => file,
+    content => template('setproxy/gitconfig.erb'),
+    owner   => 'root',
+    mode    => '0644',
+  }
+
+  if $enable_gitproxy {
+    file { '/usr/local/bin/gitproxy':
       ensure  => file,
-      content => template('setproxy/gitconfig.erb'),
-      owner   => 'root',
-      mode    => '0644',
-    }
-
-    if $enable_gitproxy {
-      file { '/usr/local/bin/gitproxy':
-        ensure  => file,
-        content => template('setproxy/gitproxy.erb'),
-        mode    => '0755',
-      }
+      content => template('setproxy/gitproxy.erb'),
+      mode    => '0755',
     }
   }
 }
